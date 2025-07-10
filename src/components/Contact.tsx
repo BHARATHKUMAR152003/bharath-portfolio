@@ -107,7 +107,7 @@ export const Contact = () => {
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors duration-300 font-medium">{info.label}</p>
-                    <p className="text-white group-hover:text-cyan-300 transition-colors duration-300 text-lg font-semibold">{info.value}</p>
+                    <p className={`text-white group-hover:text-cyan-300 transition-colors duration-300 font-semibold ${info.label === 'Email' ? 'text-sm' : 'text-lg'}`}>{info.value}</p>
                   </div>
                 </a>
               ))}

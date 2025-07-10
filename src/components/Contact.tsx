@@ -1,7 +1,9 @@
 
-import { Mail, Phone, Linkedin, Github, Send } from "lucide-react";
+import { Mail, Phone, Linkedin, Github, Send, Loader2 } from "lucide-react";
 import { useState } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { sendEmail } from "@/lib/emailjs";
+import { useToast } from "@/hooks/use-toast";
 
 export const Contact = () => {
   useScrollAnimation();
@@ -11,11 +13,40 @@ export const Contact = () => {
     email: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission here
+    
+    if (!formData.name || !formData.email || !formData.message) {
+      toast({
+        title: "Error",
+        description: "Please fill in all fields.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    try {
+      await sendEmail(formData);
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for your message. I'll get back to you soon!",
+      });
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again or contact me directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -94,6 +125,7 @@ export const Contact = () => {
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
                   className="w-full p-4 bg-slate-800/50 border border-cyan-500/20 rounded-xl text-white focus:border-cyan-400 focus:outline-none focus:scale-105 transition-all duration-300 text-lg hover:shadow-lg hover:shadow-cyan-500/10"
+                  disabled={isSubmitting}
                   required
                 />
               </div>
@@ -105,6 +137,7 @@ export const Contact = () => {
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
                   className="w-full p-4 bg-slate-800/50 border border-cyan-500/20 rounded-xl text-white focus:border-cyan-400 focus:outline-none focus:scale-105 transition-all duration-300 text-lg hover:shadow-lg hover:shadow-cyan-500/10"
+                  disabled={isSubmitting}
                   required
                 />
               </div>
@@ -116,17 +149,23 @@ export const Contact = () => {
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
                   rows={6}
                   className="w-full p-4 bg-slate-800/50 border border-cyan-500/20 rounded-xl text-white focus:border-cyan-400 focus:outline-none focus:scale-105 transition-all duration-300 text-lg hover:shadow-lg hover:shadow-cyan-500/10"
+                  disabled={isSubmitting}
                   required
                 ></textarea>
               </div>
               
               <button
                 type="submit"
-                className="w-full flex items-center justify-center gap-3 py-4 bg-gradient-to-r from-cyan-500 to-purple-500 text-white rounded-xl font-bold text-lg hover:scale-105 transform transition-all duration-500 shadow-lg hover:shadow-cyan-500/25 animate-on-scroll opacity-0 animate-glow-pulse"
+                disabled={isSubmitting}
+                className="w-full flex items-center justify-center gap-3 py-4 bg-gradient-to-r from-cyan-500 to-purple-500 text-white rounded-xl font-bold text-lg hover:scale-105 transform transition-all duration-500 shadow-lg hover:shadow-cyan-500/25 animate-on-scroll opacity-0 animate-glow-pulse disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                 style={{ animationDelay: '1.8s' }}
               >
-                <Send size={24} className="animate-pulse" />
-                Send Message
+                {isSubmitting ? (
+                  <Loader2 size={24} className="animate-spin" />
+                ) : (
+                  <Send size={24} className="animate-pulse" />
+                )}
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </div>

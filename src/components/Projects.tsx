@@ -12,8 +12,8 @@ export const Projects = () => {
       technologies: ["Python", "YOLOv8", "OpenCV", "Tkinter", "Computer Vision"],
       icon: Eye,
       gradient: "from-green-400 to-blue-500",
-      githubUrl: "https://github.com/bharathkumar-5/Waste-Detection-Using-Computer-Vision",
-      demoUrl: "https://github.com/bharathkumar-5/Waste-Detection-Using-Computer-Vision"
+      githubUrl: "https://github.com/BHARATHKUMAR152003/waste-detection-using-computer-vision",
+      demoUrl: "https://github.com/BHARATHKUMAR152003/waste-detection-using-computer-vision"
     },
     {
       title: "Stock Market Prediction Model",
@@ -21,8 +21,8 @@ export const Projects = () => {
       technologies: ["Python", "TensorFlow", "scikit-learn", "Data Analysis", "Machine Learning"],
       icon: TrendingUp,
       gradient: "from-purple-400 to-pink-500",
-      githubUrl: "https://github.com/bharathkumar-5/Stock-Market-Prediction",
-      demoUrl: "https://github.com/bharathkumar-5/Stock-Market-Prediction"
+      githubUrl: "https://github.com/BHARATHKUMAR152003/Stock-Market-Prediction",
+      demoUrl: "https://github.com/BHARATHKUMAR152003/Stock-Market-Prediction"
     },
     {
       title: "Railway Reservation System",
@@ -30,8 +30,8 @@ export const Projects = () => {
       technologies: ["Java", "Object-Oriented Programming", "System Design", "Database Management"],
       icon: Train,
       gradient: "from-blue-400 to-cyan-500",
-      githubUrl: "https://github.com/bharathkumar-5/Railway-Reservation-System",
-      demoUrl: "https://github.com/bharathkumar-5/Railway-Reservation-System"
+      githubUrl: "https://github.com/BHARATHKUMAR152003/Railway-Reservation-System",
+      demoUrl: "https://github.com/BHARATHKUMAR152003/Railway-Reservation-System"
     }
   ];
 

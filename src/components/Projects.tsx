@@ -11,21 +11,27 @@ export const Projects = () => {
       description: "Real-time waste detection system using YOLOv8 and OpenCV with an intuitive Tkinter UI for efficient waste categorization and environmental monitoring.",
       technologies: ["Python", "YOLOv8", "OpenCV", "Tkinter", "Computer Vision"],
       icon: Eye,
-      gradient: "from-green-400 to-blue-500"
+      gradient: "from-green-400 to-blue-500",
+      githubUrl: "https://github.com/bharathkumar-5/Waste-Detection-Using-Computer-Vision",
+      demoUrl: "https://github.com/bharathkumar-5/Waste-Detection-Using-Computer-Vision"
     },
     {
       title: "Stock Market Prediction Model",
       description: "Advanced predictive modeling system using TensorFlow and scikit-learn to analyze historical stock data and forecast market trends with high accuracy.",
       technologies: ["Python", "TensorFlow", "scikit-learn", "Data Analysis", "Machine Learning"],
       icon: TrendingUp,
-      gradient: "from-purple-400 to-pink-500"
+      gradient: "from-purple-400 to-pink-500",
+      githubUrl: "https://github.com/bharathkumar-5/Stock-Market-Prediction",
+      demoUrl: "https://github.com/bharathkumar-5/Stock-Market-Prediction"
     },
     {
       title: "Railway Reservation System",
       description: "Comprehensive Java-based ticket booking system featuring seat availability management, cancellation handling, and efficient user management.",
       technologies: ["Java", "Object-Oriented Programming", "System Design", "Database Management"],
       icon: Train,
-      gradient: "from-blue-400 to-cyan-500"
+      gradient: "from-blue-400 to-cyan-500",
+      githubUrl: "https://github.com/bharathkumar-5/Railway-Reservation-System",
+      demoUrl: "https://github.com/bharathkumar-5/Railway-Reservation-System"
     }
   ];
 
@@ -55,14 +61,24 @@ export const Projects = () => {
               </div>
               
               <div className="flex gap-4">
-                <button className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-purple-500 text-white rounded-lg text-sm font-semibold hover:scale-115 hover:shadow-2xl hover:shadow-cyan-500/40 transition-all duration-500 transform hover:-translate-y-2 animate-glow-pulse">
+                <a 
+                  href={project.githubUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-purple-500 text-white rounded-lg text-sm font-semibold hover:scale-115 hover:shadow-2xl hover:shadow-cyan-500/40 transition-all duration-500 transform hover:-translate-y-2 animate-glow-pulse"
+                >
                   <Github size={18} className="animate-pulse hover:animate-spin" />
                   Code
-                </button>
-                <button className="flex items-center gap-2 px-4 py-2 border border-cyan-400 text-cyan-400 rounded-lg text-sm font-semibold hover:bg-cyan-400 hover:text-slate-900 hover:scale-115 transition-all duration-500 transform hover:-translate-y-2">
+                </a>
+                <a 
+                  href={project.demoUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 border border-cyan-400 text-cyan-400 rounded-lg text-sm font-semibold hover:bg-cyan-400 hover:text-slate-900 hover:scale-115 transition-all duration-500 transform hover:-translate-y-2"
+                >
                   <ExternalLink size={18} className="animate-pulse hover:animate-bounce" style={{ animationDelay: '0.5s' }} />
                   Demo
-                </button>
+                </a>
               </div>
             </div>
           ))}

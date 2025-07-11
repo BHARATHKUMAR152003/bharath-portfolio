@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ChevronDown, Code, Brain, Zap, Sparkles, Cpu, Rocket } from "lucide-react";
+import { ChevronDown, Code, Brain, Zap, Sparkles, Cpu, Rocket, Download } from "lucide-react";
 export const Hero = () => {
   const [displayedText, setDisplayedText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -180,6 +180,16 @@ export const Hero = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
           </button>
+          <a 
+            href="/resume.pdf" 
+            download="Bharath_Kumar_S_Resume.pdf"
+            className="px-10 py-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full font-bold text-lg hover:scale-115 hover:rotate-3 hover:shadow-2xl hover:shadow-green-500/50 transform transition-all duration-500 relative overflow-hidden group animate-glow-pulse flex items-center justify-center gap-3"
+          >
+            <span className="relative z-10">Download Resume</span>
+            <Download size={20} className="relative z-10 animate-pulse group-hover:animate-bounce" />
+            <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+          </a>
           <button onClick={handleContactClick} className="px-10 py-4 border-3 border-cyan-400 text-cyan-400 rounded-full font-bold text-lg hover:bg-cyan-400 hover:text-slate-900 hover:scale-115 hover:rotate-3 hover:shadow-2xl hover:shadow-cyan-400/50 transition-all duration-500 relative overflow-hidden group animate-glow-pulse" style={{
           animationDelay: '0.5s'
         }}>
